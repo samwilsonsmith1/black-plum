@@ -2,8 +2,8 @@
 """
 Drop replacement photos into place.
 
-Save your images anywhere and name them booloumba / kenilworth / everglades
-(any common extension), then run:
+Save your images anywhere and name them booloumba / kenilworth /
+everglades / mount-eerwah (any common extension), then run:
 
     python3 swap-photos.py ~/Downloads
 
@@ -16,7 +16,7 @@ import json, os, re, shutil, subprocess, sys, glob
 HERE = os.path.dirname(os.path.abspath(__file__))
 os.chdir(HERE)
 
-SLOTS = ('booloumba', 'kenilworth', 'everglades')
+SLOTS = ('booloumba', 'kenilworth', 'everglades', 'mount-eerwah')
 EXTS = ('.jpg', '.jpeg', '.png', '.webp', '.heic')
 
 src_dir = os.path.expanduser(sys.argv[1] if len(sys.argv) > 1 else '~/Downloads')
