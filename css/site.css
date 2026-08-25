@@ -956,3 +956,20 @@ section[id], [id]{ scroll-margin-top:92px; }
 .field .hint{ font-size:.75rem; color:var(--ink-faint); margin-top:.4rem; }
 .field .hint.error{ color:#b3261e; display:none; }
 .field .hint.error.show{ display:block; }
+
+/* a full-width feature, for photographs whose whole point is their width */
+.wide-feature{ margin-top:clamp(4rem,10vh,8rem); }
+.wide-feature + .studio{ margin-top:clamp(4rem,10vh,8rem); }
+.wide-media{
+  aspect-ratio:2.4/1; border-radius:var(--r-md);
+  box-shadow:var(--shadow-md); background:var(--paper-deep);
+}
+.wide-media img{ transition:transform 1.4s var(--ease); }
+.wide-feature:hover .wide-media img{ transform:scale(1.02); }
+@media (max-width:760px){ .wide-media{ aspect-ratio:4/3; } }
+
+.wide-body{
+  display:grid; grid-template-columns:.85fr 1.15fr;
+  gap:clamp(1.6rem,5vw,4.5rem); margin-top:clamp(1.8rem,4vw,2.6rem); align-items:start;
+}
+@media (max-width:860px){ .wide-body{ grid-template-columns:1fr; gap:1.4rem; } }

@@ -143,6 +143,24 @@ drive times.
 If you swap any of these photos, update the credit on the image, the footer
 paragraph, and `credits.json` together.
 
+### Swapping a photo
+
+`swap-photos.py` drops replacement images into place. Name your files
+`booloumba.*`, `kenilworth.*` or `everglades.*`, then:
+
+```bash
+python3 swap-photos.py ~/Downloads
+```
+
+It resizes and compresses each one, overwrites the file the page already
+points at, and strips that image's on-image credit — a supplied photo
+shouldn't carry a Wikimedia photographer's name. Afterwards, edit the footer
+credit paragraph in `things-to-do.html` to drop any photographer whose image
+is no longer on the page.
+
+**Check you have the right to publish anything you add.** The site is public,
+and the Commons photos are used precisely because their licences allow it.
+
 ### "Ask James"
 
 The panel on `things-to-do.html` is a mock-up in the same spirit as the booking
