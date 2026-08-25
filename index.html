@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
+<title>Black Plum — Two art studios in the Noosa Hinterland</title>
+<meta name="description" content="Two converted artists' studios at the foot of Mount Eerwah, Eerwah Vale. Wood fires, a creek-fed bath, easels you're welcome to use, and the Eumundi Markets ten minutes down the road.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/site.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='18' r='10' fill='%231f6152'/%3E%3Cpath d='M16 9c0-4 3-6 6-6-1 4-3 6-6 6z' fill='%23c08a3e'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="shell-wide nav-inner">
+    <a class="wordmark" href="index.html" aria-label="Black Plum, home">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="19" r="9.5" fill="currentColor"/>
+        <path d="M16 10.5C16 6 19 3.2 23.5 3 23.2 7.5 20 10.4 16 10.5z" fill="currentColor" opacity=".62"/>
+        <path d="M16 10.5V19" stroke="currentColor" stroke-width="1.2" fill="none" opacity=".5"/>
+      </svg>
+      <span class="wordmark-txt"><b>Black Plum</b><span>Eerwah Vale</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#studios">The Studios</a>
+      <a href="#place">The Place</a>
+      <a href="#hosts">Your Hosts</a>
+      <a href="#reviews">Guest Notes</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a class="btn btn-light btn-sm" href="book.html">Check availability</a>
+      <button class="burger" aria-label="Menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <a href="#studios">The Studios</a>
+  <a href="#place">The Place</a>
+  <a href="#hosts">Your Hosts</a>
+  <a href="#reviews">Guest Notes</a>
+  <a class="btn btn-accent" href="book.html">Check availability</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-media">
+    <img src="photos/creek/creek-12.jpg" alt="A firepit on the lawn with Mount Eerwah rising behind the treeline">
+  </div>
+
+  <div class="shell-wide hero-inner">
+    <div class="hero-tags">
+      <span>Eerwah Vale, QLD</span><span class="dot"></span>
+      <span>Noosa Hinterland</span><span class="dot"></span>
+      <span>Superhost since 2018</span>
+    </div>
+
+    <h1>Two art studios at the foot of <em>Mount&nbsp;Eerwah</em></h1>
+
+    <p class="hero-sub">
+      Neither of these buildings was made for guests. They were made to paint in — and we have
+      tried very hard not to tidy that out of them.
+    </p>
+
+    <form class="searchbar" data-searchbar>
+      <div class="sb-field">
+        <label for="sb-studio">Studio</label>
+        <select id="sb-studio" name="studio">
+          <option value="any">Either studio</option>
+          <option value="shed">Black Plum Art Shed</option>
+          <option value="creek">Art Studio by the Creek</option>
+        </select>
+      </div>
+
+      <div class="sb-field">
+        <label id="lbl-ci">Arrive</label>
+        <button type="button" class="sb-btn" data-role="ci" aria-labelledby="lbl-ci">Add dates</button>
+      </div>
+
+      <div class="sb-field">
+        <label id="lbl-co">Leave</label>
+        <button type="button" class="sb-btn" data-role="co" aria-labelledby="lbl-co">Add dates</button>
+      </div>
+
+      <div class="sb-field">
+        <label id="lbl-g">Guests</label>
+        <button type="button" class="sb-btn" data-role="guests" aria-labelledby="lbl-g">2 guests</button>
+      </div>
+
+      <button class="btn btn-accent" type="submit">Check dates</button>
+
+      <input type="hidden" name="checkin">
+      <input type="hidden" name="checkout">
+      <input type="hidden" name="guests" value="2">
+      <input type="hidden" name="pet" value="0">
+
+      <!-- date picker -->
+      <div class="sb-pop" data-pop="dates">
+        <div class="pop-head">
+          <h3>Pick your nights</h3>
+          <span class="pop-readout">Choose the day you arrive</span>
+        </div>
+        <div class="pop-cal"></div>
+        <div class="pop-msg"></div>
+        <div class="pop-foot">
+          <button type="button" class="pop-clear" hidden>Clear dates</button>
+          <span class="cal-legend"><i><span class="sw blk"></span> Already booked</i></span>
+          <button type="button" class="btn btn-ghost btn-sm pop-done">Done</button>
+        </div>
+      </div>
+
+      <!-- guests -->
+      <div class="sb-pop" data-pop="guests">
+        <div class="pop-row">
+          <div><b>Guests</b><small>Both studios sleep two</small></div>
+          <div class="stepper">
+            <button type="button" class="g-minus" aria-label="Fewer guests">&minus;</button>
+            <output>2</output>
+            <button type="button" class="g-plus" aria-label="More guests">+</button>
+          </div>
+        </div>
+        <div class="pop-row">
+          <div><b>Bringing a dog?</b><small>$25 for the stay, just ask first</small></div>
+          <label class="switch"><input type="checkbox" class="g-pet"><span class="track"></span></label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<!-- ================= MANIFESTO ================= -->
+<section class="section">
+  <div class="shell manifesto">
+    <div class="rv">
+      <p class="eyebrow">The idea</p>
+      <p class="manifesto-big">
+        A shed full of easels, a cabin by a creek, five acres of subtropical hinterland
+        and <em>absolutely nothing to do</em>.
+      </p>
+    </div>
+    <div class="rv" data-delay=".12">
+      <p class="lede">
+        Both of these places began life as working art studios. When we converted them we kept
+        what was already good — the original timber, the tin wall behind the wood stove, the
+        three-metre ceilings, the paint on the bench.
+      </p>
+      <p class="lede">
+        What you get is a small, characterful building in a very quiet pocket of the Noosa
+        hinterland: wallabies at dusk, mangoes and bush lemons you're welcome to pick, a fire to
+        light after dark, and the Eumundi Markets ten minutes down the hill. There are easels and
+        charcoal in the cupboard if the mood takes you. Most people just sit on the deck.
+      </p>
+      <p style="margin-top:1.6rem"><a class="link-u" href="#studios">See both studios &nbsp;→</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="section-tight">
+  <div class="shell">
+    <div class="stats rv">
+      <div class="stat"><b>4.91</b><span>Average rating</span></div>
+      <div class="stat"><b>364</b><span>Guest reviews</span></div>
+      <div class="stat"><b>8 yrs</b><span>Hosting, as Superhosts</span></div>
+      <div class="stat"><b>2</b><span>Guest Favourites</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TICKER ================= -->
+<div class="strip">
+  <div class="strip-track">
+    <span>Mangoes in season</span><span>Bush lemons &amp; star fruit</span><span>Wallabies at dusk</span>
+    <span>A tame horse called Shanika</span><span>Easels, charcoal &amp; canvas</span>
+    <span>A wood fire under the stars</span><span>Eumundi Markets on Saturday</span>
+    <span>Dogs, generally, welcome</span>
+  </div>
+</div>
+
+<!-- ================= STUDIOS ================= -->
+<section class="section" id="studios">
+  <div class="shell">
+
+    <div class="rv" style="max-width:44ch;margin-bottom:clamp(2.5rem,6vh,4.5rem)">
+      <p class="eyebrow">Two studios</p>
+      <h2 class="h-xl">Pick your kind of quiet.</h2>
+    </div>
+
+    <!-- Studio 01 -->
+    <article class="studio">
+      <div class="studio-media rv">
+        <div class="frame">
+          <img src="photos/shed/shed-01.jpg" alt="Two Adirondack chairs and a small round table on the Art Shed's covered deck, looking out to the mango tree">
+        </div>
+        <div class="inset">
+          <img src="photos/shed/shed-02.jpg" alt="The wood-burning stove against the original tin feature wall inside the Art Shed" loading="lazy">
+        </div>
+      </div>
+
+      <div class="studio-body rv" data-delay=".12">
+        <p class="eyebrow">Entire guesthouse · the original studio</p>
+        <h3 class="h-lg">Black Plum<br>Art Shed</h3>
+
+        <div class="studio-meta">
+          <span class="rating">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg>
+            4.89
+          </span>
+          <span class="sep">·</span><i>251 reviews</i>
+          <span class="sep">·</span><i>2 guests</i>
+          <span class="sep">·</span><i>King bed</i>
+          <span class="sep">·</span><i>1 bath</i>
+        </div>
+
+        <p class="lede" style="margin-bottom:1.6rem">
+          The original studio: three-metre ceilings, a wood stove against a feature tin wall, and
+          french doors that open onto a deck built for the last hour of light. Five acres of fruit
+          trees and wallabies around it.
+        </p>
+
+        <ul class="feature-list">
+          <li>Two decks — morning sun with the mango tree on one, sunset and a fire on the other</li>
+          <li>Easels, canvases, paints, charcoal and artists' pencils, all yours to use</li>
+          <li>Pick mangoes, mandarins, bush lemons and star fruit when they're in season</li>
+          <li>Well-stocked galley kitchen, wood-burning stove, split-system air con</li>
+        </ul>
+
+        <div class="studio-actions">
+          <a class="btn" href="art-shed.html">Explore the Art Shed</a>
+          <a class="link-u" href="book.html?studio=shed">Check dates &nbsp;→</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Studio 02 -->
+    <article class="studio flip">
+      <div class="studio-media rv">
+        <div class="frame">
+          <img src="photos/creek/creek-06.jpg" alt="The Creek Studio cabin, clad in dark tin with a vine-covered verandah, seen across the lawn" loading="lazy">
+        </div>
+        <div class="inset">
+          <img src="photos/creek/creek-09.jpg" alt="A white clawfoot bath on the timber deck, open to the bush" loading="lazy">
+        </div>
+      </div>
+
+      <div class="studio-body rv" data-delay=".12">
+        <p class="eyebrow">Entire cabin · down by the water</p>
+        <h3 class="h-lg">Art Studio<br>by the Creek</h3>
+
+        <div class="studio-meta">
+          <span class="rating">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg>
+            4.96
+          </span>
+          <span class="sep">·</span><i>113 reviews</i>
+          <span class="sep">·</span><i>2 guests</i>
+          <span class="sep">·</span><i>1 bedroom</i>
+          <span class="sep">·</span><i>1 bath</i>
+        </div>
+
+        <p class="lede" style="margin-bottom:1.6rem">
+          The quirky one. A creative enclave with a style all of its own — vine-wrapped beams, a
+          shower plumbed in exposed copper, and a bed with bush on three sides. Mount Eerwah sits
+          straight ahead of the firepit.
+        </p>
+
+        <ul class="feature-list">
+          <li>A clawfoot bath on the deck, fed straight from the creek — cold, and gloriously so</li>
+          <li>Firepit on the lawn with the mountain behind it, and a footbridge over the water</li>
+          <li>Espresso machine, wine glasses, books, and a kitchen that looks into the trees</li>
+          <li>Single level, no stairs, private patio, pets welcome</li>
+        </ul>
+
+        <div class="studio-actions">
+          <a class="btn" href="creek-studio.html">Explore the Creek Studio</a>
+          <a class="link-u" href="book.html?studio=creek">Check dates &nbsp;→</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ================= MOSAIC ================= -->
+<section class="section-tight">
+  <div class="shell-wide">
+    <div class="mosaic rv">
+      <a class="tall" href="#" data-lightbox="photos/shed/shed-21.jpg"><img src="photos/shed/shed-21.jpg" alt="Mount Eerwah seen through the trees from the edge of the creek" loading="lazy"></a>
+      <a class="wide" href="#" data-lightbox="photos/creek/creek-02.jpg"><img src="photos/creek/creek-02.jpg" alt="The Creek Studio bed, tucked under a timber ceiling with windows on three sides" loading="lazy"></a>
+      <a href="#" data-lightbox="photos/shed/shed-09.jpg"><img src="photos/shed/shed-09.jpg" alt="The Art Shed's galley kitchen with a recycled timber splashback" loading="lazy"></a>
+      <a href="#" data-lightbox="photos/shed/shed-20.jpg"><img src="photos/shed/shed-20.jpg" alt="A half-finished painting on an easel with brushes in a jar" loading="lazy"></a>
+      <a href="#" data-lightbox="photos/creek/creek-07.jpg"><img src="photos/creek/creek-07.jpg" alt="A timber footbridge crossing the creek" loading="lazy"></a>
+      <a href="#" data-lightbox="photos/shed/shed-07.jpg"><img src="photos/shed/shed-07.jpg" alt="The Art Shed living area with french doors thrown open to the paddock" loading="lazy"></a>
+      <a href="#" data-lightbox="photos/creek/creek-08.jpg"><img src="photos/creek/creek-08.jpg" alt="The Creek Studio's dark green kitchen with a window over the sink looking into bush" loading="lazy"></a>
+      <a href="#" data-lightbox="photos/shed/shed-23.jpg"><img src="photos/shed/shed-23.jpg" alt="A well-used artist's palette resting on a timber fence" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE PLACE ================= -->
+<section class="section bg-dark" id="place">
+  <div class="shell place-grid">
+    <div class="rv">
+      <figure class="photo-peek" data-peek>
+        <img src="photos/creek/creek-03.jpg" alt="The creek running quietly through gum trees and long grass" loading="lazy">
+        <img class="peek-critter" src="photos/shanika.webp" alt="Shanika, the resident horse, leaning in from the edge of the paddock" loading="lazy">
+        <figcaption>Shanika, who will supervise your arrival.</figcaption>
+      </figure>
+    </div>
+
+    <div class="rv" data-delay=".12">
+      <p class="eyebrow">The place</p>
+      <h2 class="h-lg" style="margin-bottom:1.4rem">A secret pocket<br>of the hinterland.</h2>
+      <p class="lede">
+        Eerwah Vale is the green, folded country behind Eumundi — dairy paddocks, scribbly gums,
+        the odd macadamia grove, and Mount Eerwah standing over all of it. It is close enough to
+        the coast to have sand in the car by lunchtime, and far enough back that you'll hear
+        nothing at night but frogs.
+      </p>
+
+      <ul class="distances">
+        <li><span class="d-name">Eumundi Markets (Wed &amp; Sat)</span><span class="d-dots"></span><span class="d-time">10 min</span></li>
+        <li><span class="d-name">Noosa Main Beach &amp; Hastings St</span><span class="d-dots"></span><span class="d-time">30 min</span></li>
+        <li><span class="d-name">Coolum Beach</span><span class="d-dots"></span><span class="d-time">30 min</span></li>
+        <li><span class="d-name">Sunshine Coast Airport</span><span class="d-dots"></span><span class="d-time">35 min</span></li>
+        <li><span class="d-name">Noosa Everglades, Boreen Point</span><span class="d-dots"></span><span class="d-time">40 min</span></li>
+        <li><span class="d-name">Montville &amp; Maleny</span><span class="d-dots"></span><span class="d-time">50 min</span></li>
+        <li><span class="d-name">Brisbane</span><span class="d-dots"></span><span class="d-time">1 hr 50</span></li>
+      </ul>
+      <p style="font-size:.76rem;color:rgba(246,241,231,.5);margin-top:1rem">Drive times are approximate.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOSTS ================= -->
+<section class="section" id="hosts">
+  <div class="shell hosts">
+    <div class="rv">
+      <div class="host-card">
+        <img src="photos/host.jpg" alt="James, your host" loading="lazy">
+        <h3 class="h-md" style="font-size:1.5rem">James</h3>
+        <p style="font-size:.9rem;color:var(--ink-soft);margin-top:.5rem">Your host, and the reason there is a wheelbarrow of firewood by the door.</p>
+        <span class="host-badge">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg>
+          Superhost · 8 years
+        </span>
+      </div>
+    </div>
+
+    <div class="rv" data-delay=".12">
+      <p class="eyebrow">Your hosts</p>
+      <h2 class="h-lg" style="margin-bottom:1.4rem">We live at the bottom<br>of the driveway.</h2>
+      <p class="lede">
+        We built both of these studios ourselves, slowly, mostly out of what was already here. We're
+        around if you need us and entirely out of the way if you don't — you'll have your own key,
+        your own deck and your own gate.
+      </p>
+      <p class="lede">
+        Arrive any time after 2pm. Leave by 10am. Somewhere in between, we hope you find the fruit
+        trees.
+      </p>
+
+      <div class="critter">
+        <div>
+          <b>Shanika</b>
+          <p>A tame horse who roams the property and will absolutely supervise your arrival. Leave a car space when you open the gate.</p>
+        </div>
+        <div>
+          <b>The wallabies</b>
+          <p>Come out across the paddock at dusk and again first thing. Best watched from the north deck with a cup of tea.</p>
+        </div>
+        <div>
+          <b>Your dog</b>
+          <p>Generally not a problem — just ask first. It's very good walking and cycling country.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="section bg-warm" id="reviews">
+  <div class="shell">
+    <div class="rv">
+      <p class="eyebrow">Guest notes</p>
+      <div class="score-row">
+        <h2 class="h-lg" style="flex:1 1 320px">What people say<br>when they get home.</h2>
+        <div class="score"><b>4.89</b><span>Art Shed<br>251 reviews</span></div>
+        <div class="score"><b>4.96</b><span>Creek Studio<br>113 reviews</span></div>
+      </div>
+    </div>
+
+    <div class="reviews">
+      <figure class="review rv">
+        <div class="review-stars" aria-label="5 out of 5">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg>
+        </div>
+        <p>“We had such a lovely stay here and truly appreciated all the thoughtful touches throughout the space. The artsy feel with the pencils and books provided was such a unique and creative addition. It made the whole experience feel warm, personal, and inspiring… The location is also perfect. It is so well placed in the Noosa Hinterlands, giving you that peaceful escape while still being close to everything.”</p>
+        <footer><b>Julie</b><span>April 2026</span></footer>
+      </figure>
+
+      <figure class="review rv" data-delay=".1">
+        <div class="review-stars" aria-label="5 out of 5">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg>
+        </div>
+        <p>“Lovely and relaxing spot with welcoming hosts. Great little get away with a pretty outlook and plenty of peace and quiet.”</p>
+        <footer><b>Scott</b><span>April 2026</span></footer>
+      </figure>
+
+      <figure class="review rv" data-delay=".2">
+        <div class="review-stars" aria-label="5 out of 5">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .8-5.2 4.9 1.4 7L12 18l-6.2 3.3 1.4-7L2 9.4l7-.8z"/></svg>
+        </div>
+        <p>“We really enjoyed hanging out with and brushing Shanika the horse, the fire both indoor and out, and the excellent local restaurants and area… a good place to come for a relaxing weekend, with a fire and lovable equine companion.”</p>
+        <footer><b>Charles</b><span>June 2026</span></footer>
+      </figure>
+    </div>
+
+    <p class="rv" style="margin-top:2.4rem;font-size:.85rem;color:var(--ink-faint)">
+      Reviews are guests' own words, collected on Airbnb.
+    </p>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta-band">
+  <img src="photos/shed/shed-04.jpg" alt="Easels set up on the lawn beneath a mango tree" loading="lazy">
+  <div class="shell">
+    <p class="eyebrow centred" style="color:var(--ochre);justify-content:center">Available now</p>
+    <h2 class="h-xl">Come and make something.<br>Or nothing at all.</h2>
+    <p>Two nights minimum. Check in after 2pm, out by 10am. The kettle, the coffee, the firewood and the paint are already here.</p>
+    <a class="btn btn-accent" href="book.html">Check availability</a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="shell">
+    <div class="footer-grid">
+      <div>
+        <a class="wordmark" href="index.html">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="16" cy="19" r="9.5" fill="currentColor"/>
+            <path d="M16 10.5C16 6 19 3.2 23.5 3 23.2 7.5 20 10.4 16 10.5z" fill="currentColor" opacity=".62"/>
+          </svg>
+          <span class="wordmark-txt"><b>Black Plum</b><span>Eerwah Vale</span></span>
+        </a>
+        <p style="max-width:34ch">Two converted art studios in the Noosa hinterland, Queensland. Hosted by James.</p>
+      </div>
+      <div>
+        <h4>The Studios</h4>
+        <ul>
+          <li><a href="art-shed.html">Black Plum Art Shed</a></li>
+          <li><a href="creek-studio.html">Art Studio by the Creek</a></li>
+          <li><a href="book.html">Check availability</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Nearby</h4>
+        <ul>
+          <li>Eumundi Markets</li>
+          <li>Noosa &amp; Hastings St</li>
+          <li>Mount Eerwah</li>
+          <li>The Noosa Everglades</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Also on</h4>
+        <ul>
+          <li><a href="https://www.airbnb.com.au/rooms/23998031" target="_blank" rel="noopener">Airbnb — Art Shed</a></li>
+          <li><a href="https://www.airbnb.com.au/rooms/983655210893217814" target="_blank" rel="noopener">Airbnb — Creek Studio</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Black Plum, Eerwah Vale QLD</span>
+      <span>Check in 2pm · Check out 10am · Two-night minimum</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/calendar.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>
