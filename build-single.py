@@ -55,10 +55,11 @@ def title_of(path):
     return re.search(r'<title>(.*?)</title>', open(path).read(), re.S).group(1)
 
 ROUTES = [
-    ('home',         'index.html'),
-    ('art-shed',     'art-shed.html'),
-    ('creek-studio', 'creek-studio.html'),
-    ('book',         'book.html'),
+    ('home',          'index.html'),
+    ('art-shed',      'art-shed.html'),
+    ('creek-studio',  'creek-studio.html'),
+    ('things-to-do',  'things-to-do.html'),
+    ('book',          'book.html'),
 ]
 FILE_TO_ROUTE = {f: r for r, f in ROUTES}
 
@@ -77,7 +78,7 @@ def rewrite_links(html):
         if frag:
             out += '!' + frag
         return f'href="{out}"'
-    return re.sub(r'href="((?:index|art-shed|creek-studio|book)\.html[^"]*)"', sub, html)
+    return re.sub(r'href="((?:index|art-shed|creek-studio|things-to-do|book)\.html[^"]*)"', sub, html)
 
 def embed(html, uris):
     """Swap every photo path for its data URI — in markup and in the JS config alike."""

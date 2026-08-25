@@ -66,22 +66,7 @@
 }
 .cal-msg.show{ display:block; }
 
-/* steppers + fields */
-.row2{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-@media (max-width:560px){ .row2{ grid-template-columns:1fr; } }
-.field{ margin-bottom:1.1rem; }
-.field label{ display:block; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:.45rem; }
-.field input, .field select, .field textarea{
-  width:100%; font-family:var(--sans); font-size:.95rem; color:var(--ink);
-  padding:.8rem .95rem; border:1px solid var(--line-strong); border-radius:var(--r-sm);
-  background:var(--paper); outline:none; transition:border-color .25s var(--ease), box-shadow .25s var(--ease);
-}
-.field textarea{ resize:vertical; min-height:96px; line-height:1.55; }
-.field input:focus,.field select:focus,.field textarea:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(31,97,82,.14); }
-.field input.err,.field select.err{ border-color:#b3261e; box-shadow:0 0 0 3px rgba(179,38,30,.1); }
-.field .hint{ font-size:.75rem; color:var(--ink-faint); margin-top:.4rem; }
-.field .hint.error{ color:#b3261e; display:none; }
-.field .hint.error.show{ display:block; }
+/* form fields are shared — see css/site.css */
 
 .check{ display:flex; gap:.75rem; align-items:flex-start; font-size:.87rem; color:var(--ink-soft); cursor:pointer; line-height:1.5; }
 .check input{ margin-top:.25rem; accent-color:var(--accent); width:16px; height:16px; flex:none; }

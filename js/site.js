@@ -308,6 +308,52 @@
   frames.forEach(f => io.observe(f));
 })();
 
+/* ---- "Ask James" — a mock-up, like the booking form ---- */
+(function () {
+  const form = document.querySelector('#ask-form');
+  const done = document.querySelector('#ask-done');
+  if (!form || !done) return;
+
+  const email = form.elements.email;
+  const hint = form.querySelector('.hint.error');
+
+  email.addEventListener('input', () => {
+    email.classList.remove('err');
+    hint.classList.remove('show');
+  });
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim());
+    email.classList.toggle('err', !ok);
+    hint.classList.toggle('show', !ok);
+    if (!ok) { email.focus(); return; }
+
+    const picked = [...form.querySelectorAll('[name=want]:checked')]
+      .map(c => c.value.replace(/&amp;/g, '&').toLowerCase());
+
+    let what;
+    if (!picked.length) what = 'his general list';
+    else if (picked.length === 1) what = picked[0];
+    else what = picked.slice(0, -1).join(', ') + ' and ' + picked[picked.length - 1];
+
+    document.querySelector('#ask-summary').textContent =
+      `James will put together ${what} and send it to ${email.value.trim()} before you arrive. ` +
+      `Nothing was actually sent — this is a demonstration.`;
+
+    form.hidden = true;
+    done.hidden = false;
+    done.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  });
+
+  document.querySelector('#ask-again').addEventListener('click', () => {
+    form.reset();
+    done.hidden = true;
+    form.hidden = false;
+  });
+})();
+
 /* ---- year ---- */
 document.querySelectorAll('[data-year]').forEach(el => {
   el.textContent = new Date().getFullYear();

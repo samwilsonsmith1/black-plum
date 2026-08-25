@@ -14,6 +14,7 @@ front-end booking mock-up.
 index.html            Home — hero, both studios, the area, hosts, reviews
 art-shed.html         Black Plum Art Shed
 creek-studio.html     Art Studio by the Creek
+things-to-do.html     What's worth the drive, and "ask James"
 book.html             Four-step booking request (mock-up)
 css/site.css          Design tokens + all shared styling
 css/booking.css       Booking flow only
@@ -22,6 +23,7 @@ js/site.js            Nav, scroll reveal, lightbox, hero search bar, Shanika
 js/booking.js         The four-step request flow
 photos/               Photography, pulled from the two Airbnb listings
 photos/shanika.webp   The horse, cut out of her photo (alpha preserved)
+photos/places/        Area photography from Wikimedia Commons + credits.json
 build-single.py       Bundles the whole site into one shareable HTML file
 dist/black-plum.html  That bundle — open it directly, no server needed
 ```
@@ -109,3 +111,45 @@ missing, the script removes her rather than leaving a broken frame.
   are not on the same land, the copy on the home page needs a small edit.
 - Review quotes are guests' own words from the Art Shed listing.
 - Photography comes from the two Airbnb listings.
+
+## Things to do
+
+Drive times on `things-to-do.html` and on the home page were each measured on
+Google Maps from Eerwah Vale, without traffic:
+
+| Destination | Time | Distance |
+| --- | --- | --- |
+| Eumundi Markets | 8 min | 7.2 km |
+| Mount Eerwah Conservation Park | 8 min | 6.5 km |
+| Kenilworth | 20 min | 24.9 km |
+| Coolum Beach | 27 min | 29.6 km |
+| Boreen Point (Lake Cootharaba) | 32 min | 41.3 km |
+| Noosa National Park | 33 min | 30.5 km |
+| Montville | 38 min | 44.9 km |
+| Booloumba Creek day-use area | 39 min | 38.4 km |
+
+### Photography and licensing
+
+Studio photographs are the owners' own. The area photographs come from
+Wikimedia Commons and stay the property of their photographers — each is
+credited in the corner of the image and again in the page footer, with a link
+to its licence. `photos/places/credits.json` holds the full metadata (file
+title, author, licence, licence URL, Commons page) for every one.
+
+Google Maps imagery was **not** used for photos: those images belong to their
+contributors and can't be republished on a site. Maps was used only to measure
+drive times.
+
+If you swap any of these photos, update the credit on the image, the footer
+paragraph, and `credits.json` together.
+
+### "Ask James"
+
+The panel on `things-to-do.html` is a mock-up in the same spirit as the booking
+form — it validates, summarises what was picked and confirms, but sends
+nothing. The logic is at the bottom of `js/site.js`.
+
+The four lines under "Already in the house notes" are quoted from the Airbnb
+listing, so they're genuinely James's own words. His actual local
+recommendations still need to come from him — that copy is in the `.notebook`
+block in `things-to-do.html`.
