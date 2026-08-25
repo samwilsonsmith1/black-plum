@@ -3,6 +3,8 @@
 A website for two converted art studios in the Noosa hinterland, with a
 front-end booking mock-up.
 
+**Live: https://samwilsonsmith1.github.io/black-plum/**
+
 - **Black Plum Art Shed** — [airbnb.com.au/rooms/23998031](https://www.airbnb.com.au/rooms/23998031)
 - **Art Studio by the Creek** — [airbnb.com.au/rooms/983655210893217814](https://www.airbnb.com.au/rooms/983655210893217814)
 
@@ -15,9 +17,11 @@ creek-studio.html     Art Studio by the Creek
 book.html             Four-step booking request (mock-up)
 css/site.css          Design tokens + all shared styling
 css/booking.css       Booking flow only
-js/site.js            Nav, scroll reveal, lightbox, hero search bar
-js/booking.js         Calendar, availability, pricing, the four steps
+js/calendar.js        Availability, pricing, and the shared range calendar
+js/site.js            Nav, scroll reveal, lightbox, hero search bar, Shanika
+js/booking.js         The four-step request flow
 photos/               Photography, pulled from the two Airbnb listings
+photos/shanika.webp   The horse, cut out of her photo (alpha preserved)
 build-single.py       Bundles the whole site into one shareable HTML file
 dist/black-plum.html  That bundle — open it directly, no server needed
 ```
@@ -42,6 +46,15 @@ After changing anything in the source, regenerate the single-file bundle:
 cd black-plum && python3 build-single.py
 ```
 
+## Deploying
+
+The live site is GitHub Pages, served from `main` at the repo root. Push to
+`main` and it redeploys in a minute or so:
+
+```bash
+git add -A && git commit -m "..." && git push
+```
+
 ## The booking system
 
 `book.html` is a **mock-up**. It is deliberately complete on the front end
@@ -55,13 +68,15 @@ and deliberately inert on the back end:
   September, an $80 cleaning fee, $25 for a dog, a 12% service fee, and a
   10% / 20% discount at 7 and 28 nights.
 - A two-night minimum is enforced, and a range containing a booked night
-  is rejected.
+  is rejected. Choosing "either studio" only blocks a night when *both*
+  are taken, and on submit it resolves to whichever studio can actually
+  take the whole stay.
 - **No booking is created, no email is sent and no payment is taken.** The
   payment step is visibly disabled and labelled as a demonstration.
 
 To make it real you would replace the confirm handler in `js/booking.js`
-with a POST to a booking provider, and swap `BOOKED` for live availability
-from the same source.
+with a POST to a booking provider, and swap `BOOKED` in `js/calendar.js`
+for live availability from the same source.
 
 ## Editing
 
@@ -77,7 +92,12 @@ Nearly everything visual is a CSS custom property at the top of
 | `--ink` / `--ink-soft` / `--ink-faint` | Text |
 
 Nightly rates, fees and the minimum stay live at the top of
-`js/booking.js`.
+`js/calendar.js`.
+
+Shanika leans into the creek photo when it scrolls into view. She's a
+`.photo-peek` figure with a `.peek-critter` cut-out; the observer that
+triggers her is at the bottom of `js/site.js`. If the image is ever
+missing, the script removes her rather than leaving a broken frame.
 
 ## Notes and assumptions
 
