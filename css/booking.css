@@ -32,7 +32,6 @@
 
 .pane{ display:none; }
 .pane.active{ display:block; animation:fadeUp .5s var(--ease); }
-@keyframes fadeUp{ from{ opacity:0; transform:translateY(12px) } to{ opacity:1; transform:none } }
 
 /* studio chooser */
 .picker{ display:grid; grid-template-columns:1fr 1fr; gap:.9rem; }

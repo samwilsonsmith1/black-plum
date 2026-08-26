@@ -458,6 +458,8 @@ p:last-child{ margin-bottom:0; }
   display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-size:.76rem; color:rgba(246,241,231,.45);
 }
 
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(12px) } to{ opacity:1; transform:none } }
+
 /* ---------- reveal ---------- */
 .js .rv{ opacity:0; transform:translateY(26px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
 .js .rv.in{ opacity:1; transform:none; }
@@ -844,26 +846,26 @@ section[id], [id]{ scroll-margin-top:92px; }
 .credit-frame figcaption a{ color:inherit; text-decoration:underline; text-underline-offset:2px; }
 
 /* the "also worth it" grid */
-.place-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; }
-@media (max-width:1040px){ .place-grid{ grid-template-columns:repeat(2,1fr); } }
-@media (max-width:600px){ .place-grid{ grid-template-columns:1fr; } }
+.nearby-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; }
+@media (max-width:1040px){ .nearby-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:600px){ .nearby-grid{ grid-template-columns:1fr; } }
 
-.place{
+.nearby{
   background:var(--card); border:1px solid rgba(27,31,28,.06); border-radius:var(--r-md);
   overflow:hidden; box-shadow:var(--shadow-sm);
   display:flex; flex-direction:column;
   transition:transform .4s var(--ease), box-shadow .4s var(--ease);
 }
-.place:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); }
-.place .credit-frame{ aspect-ratio:4/3; }
-.place .credit-frame img{ transition:transform 1s var(--ease); }
-.place:hover .credit-frame img{ transform:scale(1.04); }
-.place-body{ padding:1.35rem 1.4rem 1.5rem; display:flex; flex-direction:column; gap:.55rem; flex:1; }
-.place-time{
+.nearby:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); }
+.nearby .credit-frame{ aspect-ratio:4/3; }
+.nearby .credit-frame img{ transition:transform 1s var(--ease); }
+.nearby:hover .credit-frame img{ transform:scale(1.04); }
+.nearby-body{ padding:1.35rem 1.4rem 1.5rem; display:flex; flex-direction:column; gap:.55rem; flex:1; }
+.nearby-time{
   font-size:.62rem; letter-spacing:.15em; text-transform:uppercase; color:var(--accent);
 }
-.place-body h3{ font-size:1.16rem; font-variation-settings:'WONK' 1; }
-.place-body p{ font-size:.9rem; color:var(--ink-soft); line-height:1.6; }
+.nearby-body h3{ font-size:1.16rem; font-variation-settings:'WONK' 1; }
+.nearby-body p{ font-size:.9rem; color:var(--ink-soft); line-height:1.6; }
 
 /* ---------- ask the host ---------- */
 .ask-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,4.5rem); align-items:start; }
