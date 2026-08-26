@@ -27,13 +27,6 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File%3ANoosa_Beach%2C_Noosa_Heads%2C_Queensland%2C_2020%2C_03.jpg"
  },
- "conondale": {
-  "title": "Conondale National Park, Queensland, 2023, 03.jpg",
-  "author": "Kgbo",
-  "license": "CC BY-SA 4.0",
-  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File%3AConondale_National_Park%2C_Queensland%2C_2023%2C_03.jpg"
- },
  "kenilworth": {
   "title": "KenilworthTownPark.JPG",
   "author": "Mattinbgn",
@@ -82,5 +75,12 @@
   "license": "Own photograph",
   "license_url": "",
   "page": ""
+ },
+ "booloumba-pool": {
+  "title": "Conondale National Park, Queensland, 2023, 03.jpg",
+  "author": "Kgbo",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File%3AConondale_National_Park%2C_Queensland%2C_2023%2C_03.jpg"
  }
 }
