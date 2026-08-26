@@ -112,6 +112,22 @@ missing, the script removes her rather than leaving a broken frame.
 - Review quotes are guests' own words from the Art Shed listing.
 - Photography comes from the two Airbnb listings.
 
+## Guest reviews
+
+The home page carries 22 real reviews in two rows that drift past in
+opposite directions, pausing when you hover so a card can actually be read.
+Every one is quoted from the two Airbnb listings (collected 27 Aug 2026);
+the longer ones are trimmed with an ellipsis and nothing is paraphrased.
+To add or change one, edit the `.quote` figures in `index.html`.
+
+The rows loop by translating exactly one copy of their contents. `site.js`
+clones each row's cards once, and the keyframe shifts by
+`-50% - half a gap` — plain `-50%` lands half a gap short and the seam
+visibly jumps.
+
+The hosts are **James and Jacqui**; Arty is their dog and Shanika the
+horse. The site said "hosted by James" until the reviews corrected it.
+
 ## Things to do
 
 Drive times on `things-to-do.html` and on the home page were each measured on

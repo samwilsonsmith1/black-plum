@@ -50,11 +50,21 @@
   setTimeout(() => els.forEach(e => e.classList.add('in')), 2500);
 })();
 
-/* ---- ticker: duplicate track for a seamless loop ---- */
+/* ---- tickers: duplicate each track so the loop is seamless ---- */
 (function () {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.strip-track').forEach(track => {
     track.innerHTML += track.innerHTML;
   });
+  // the review rows translate by -50%, so they need exactly two copies
+  if (!reduced) {
+    document.querySelectorAll('.quote-row').forEach(row => {
+      const clone = row.cloneNode(true);
+      clone.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+      clone.setAttribute('aria-hidden', 'true');
+      [...clone.children].forEach(c => row.appendChild(c));
+    });
+  }
 })();
 
 /* ---- lightbox (gallery scoped to its own container) ---- */
