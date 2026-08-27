@@ -25,32 +25,40 @@ import glob, json, os, re, shutil, subprocess, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 os.chdir(HERE)
 
-# slot -> (aspect ratio of the frame it lands in, human name for the frame)
+# slot -> (frame aspect ratio, frame name, filename keywords that mean this slot)
+# "booloumba" is the park's spelling; people reasonably write "booloomba" too.
 FRAMES = {
-    'booloumba':      (4/5,   'portrait frame'),
-    'booloumba-pool': (4/3,   'inset'),
-    'kenilworth':     (5/4,   'landscape frame'),
-    'everglades':     (2/1,   'full-width band'),
-    'mount-eerwah':   (4/5,   'portrait frame'),
+    'booloumba':      (4/5, 'portrait frame',  ('booloumba falls', 'booloomba falls', 'falls')),
+    'booloumba-pool': (4/3, 'inset',           ('booloumba creek', 'booloomba creek',
+                                                'swimming hole', 'pool')),
+    'kenilworth':     (5/4, 'landscape frame', ('kenilworth',)),
+    'everglades':     (2/1, 'full-width band', ('everglade',)),
+    'mount-eerwah':   (4/5, 'portrait frame',  ('eerwah top', 'mount eerwah', 'mt eerwah',
+                                                'summit', 'eerwah')),
 }
 EXTS = ('.jpg', '.jpeg', '.png', '.webp', '.heic', '.heif', '.tif', '.tiff')
 PAGE = 'things-to-do.html'
 
 src_dir = os.path.expanduser(sys.argv[1] if len(sys.argv) > 1 else '~/Downloads')
 
-found = {}
-for slot in FRAMES:
-    for f in sorted(glob.glob(os.path.join(src_dir, '*'))):
-        base = os.path.basename(f).lower()
-        stem = os.path.splitext(base)[0].replace('_', '-').replace(' ', '-')
-        if stem == slot and base.endswith(EXTS):
+candidates = [f for f in sorted(glob.glob(os.path.join(src_dir, '*')))
+              if f.lower().endswith(EXTS)]
+
+found, claimed = {}, set()
+for slot, (_, _, keywords) in FRAMES.items():
+    for f in candidates:
+        if f in claimed:
+            continue
+        stem = os.path.splitext(os.path.basename(f))[0].lower().replace('_', ' ').replace('-', ' ')
+        if stem.strip() == slot.replace('-', ' ') or any(k in stem for k in keywords):
             found[slot] = f
+            claimed.add(f)
             break
 
 if not found:
     print(f'Nothing to swap. Looked in {src_dir} for:')
-    for slot in FRAMES:
-        print(f'  {slot}.<jpg|png|heic|…>')
+    for slot, (_, _, kw) in FRAMES.items():
+        print(f'  {slot:<16} (also matches: {", ".join(kw)})')
     sys.exit(1)
 
 
@@ -81,7 +89,7 @@ for slot, src in found.items():
                      'license': 'Own photograph', 'license_url': '', 'page': ''}
 
     w, h = dimensions(dst)
-    frame, frame_name = FRAMES[slot]
+    frame, frame_name, _ = FRAMES[slot]
     kb = os.path.getsize(dst) // 1024
     if w and h:
         ratio = w / h
@@ -92,26 +100,41 @@ for slot, src in found.items():
     else:
         print(f'{slot:<16} {kb:>4} KB  {frame_name}')
 
-# rebuild the footer credit line from whoever is actually still on the page
+# rebuild the footer credit line from what is actually on the page now
+PLACE_NAME = {
+    'booloumba': 'Booloumba Creek', 'booloumba-pool': 'Booloumba Creek',
+    'kenilworth': 'Kenilworth', 'everglades': 'the Everglades',
+    'mount-eerwah': 'Mount Eerwah',
+}
 on_page = {m for m in re.findall(r'photos/places/([\w-]+)\.jpg', page)}
-authors = []
+
+ours, authors = [], []
 for slot in sorted(on_page):
     info = credits.get(slot, {})
-    name = info.get('author', '')
-    if info.get('license_url') and name and name not in authors:
-        authors.append(name)
-authors = [re.sub(r'\s+from .*$', '', a) for a in authors]
+    if info.get('license') == 'Own photograph':
+        name = PLACE_NAME.get(slot)
+        if name and name not in ours:
+            ours.append(name)
+    elif info.get('license_url'):
+        who = re.sub(r'\s+from .*$', '', info.get('author', ''))
+        if who and who not in authors:
+            authors.append(who)
+
+
+def join(items):
+    return ', '.join(items[:-1]) + ' and ' + items[-1] if len(items) > 1 else items[0]
+
+
+first = ('Photographs of the studios, and of ' + join(ours) + ', are our own. The remaining\n'
+         '        area photographs') if ours else 'Photographs of the studios are our own. The area photographs'
 
 if authors:
-    listed = ', '.join(authors[:-1]) + ' and ' + authors[-1] if len(authors) > 1 else authors[0]
-    replacement = (
-        'Photographs of the studios, and of Mount Eerwah, Booloumba Creek, Kenilworth\n'
-        '        and the Everglades, are our own. The remaining area photographs come from\n'
-        f'        Wikimedia Commons and stay the work of their photographers: {listed}.\n'
-        '        Each is credited on the image and used under the Creative Commons licence\n'
-        '        noted there; all have been resized for the web.')
+    replacement = (f'{first} come from Wikimedia Commons and stay the work of\n'
+                   f'        their photographers: {join(authors)}. Each is credited on the image and\n'
+                   '        used under the Creative Commons licence noted there; all have been resized\n'
+                   '        for the web.')
 else:
-    replacement = 'All photographs on this page are our own.'
+    replacement = 'Every photograph on this page is our own.'
 
 page = re.sub(r'(<div class="credits">\s*<h4>Photography</h4>\s*<p>\s*).*?(\s*</p>)',
               lambda m: m.group(1) + replacement + m.group(2), page, flags=re.S)
